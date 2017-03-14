@@ -1,5 +1,5 @@
 # BKLeftMenuController
-创建一个自带左端隐藏菜单栏的控制器,并且控制器中可以添加自控制,用左端隐藏菜单栏进行子控制器间切换(左端隐藏菜单栏可通过左边缘手势划出)
+创建一个自带左端隐藏菜单栏的控制器,并且控制器中可以添加子控制器,用左端隐藏菜单栏进行子控制器间切换(左端隐藏菜单栏可通过左边缘手势划出)
 实例:
 
     UIViewController *firstViewCtl = [[UIViewController alloc] init];
