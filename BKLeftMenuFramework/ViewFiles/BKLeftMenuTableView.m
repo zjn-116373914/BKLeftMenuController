@@ -24,7 +24,7 @@
         self.delegate = self;
         self.tableFooterView = [[UIView alloc] init];
         self.backgroundColor = [UIColor lightGrayColor];
-        self.rowHeight = ScreenHeight/10;
+        self.rowHeight = (ScreenHeight-HeadHeight)/10.0;
         
     }
     return self;
