@@ -29,18 +29,18 @@
     UINavigationController *firstViewNVCtl = [[UINavigationController alloc] initWithRootViewController:firstViewCtl];
     
     UIViewController *secondViewCtl = [[UIViewController alloc] init];
-    UINavigationController *secondViewNVCtl = [[UINavigationController alloc] initWithRootViewController:secondViewCtl];
     secondViewCtl.title = @"第二页面";
     [secondViewCtl.view setBackgroundImageViewFromImage:[UIImage imageNamed:@"Image2_Kerrigan"]];
+    UINavigationController *secondViewNVCtl = [[UINavigationController alloc] initWithRootViewController:secondViewCtl];
     
     UIViewController *thirdViewCtl = [[UIViewController alloc] init];
-    UINavigationController *thirdViewNVCtl = [[UINavigationController alloc] initWithRootViewController:thirdViewCtl];
     thirdViewCtl.title = @"第三页面";
     [thirdViewCtl.view setBackgroundImageViewFromImage:[UIImage imageNamed:@"Image3_Tassadar"]];
+    UINavigationController *thirdViewNVCtl = [[UINavigationController alloc] initWithRootViewController:thirdViewCtl];
     
     /**框架外核心代码**/
     BKLeftMenuViewController *mainViewCtl = [[BKLeftMenuViewController leftMenuViewController] initWithchildViewControllerArr:@[firstViewNVCtl,secondViewNVCtl,thirdViewNVCtl]];
-    [mainViewCtl loadleftMenuCellLabelTextArray:@[@"第一页",@"第二页",@"第三页"]];
+    [mainViewCtl loadleftMenuCellLabelTextArray:@[@"第1页",@"第2页",@"第3页"]];
 //    [mainViewCtl setTransitionType:UIViewAnimationOptionTransitionFlipFromLeft transitionTime:0.5];
     [mainViewCtl loadLeftMenuMainFunction];
     /**--------------------------------------**/
