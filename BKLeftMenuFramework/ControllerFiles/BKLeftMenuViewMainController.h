@@ -20,7 +20,7 @@
 //[添加左端菜单栏Cell文字数组]方法
 - (void)loadleftMenuCellLabelTextArray:(NSArray*)cellLabelTextArray;
 
-//设置自控制[切换动画以及切换时间](不建议使用,修改切换属性会影响切换性能)
+//设置子控制器[切换动画以及切换时间](不建议使用,修改切换属性会影响切换性能)
 - (void)setTransitionType:(UIViewAnimationOptions)transitionType transitionTime:(CGFloat)transitionTime;
 
 //完成左端菜单栏以及子控制器[最终加载主方法]
