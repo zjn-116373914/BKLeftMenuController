@@ -15,7 +15,7 @@
 		0C7FF1951E76F3610063BB1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C7FF1941E76F3610063BB1D /* Assets.xcassets */; };
 		0C7FF1981E76F3610063BB1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C7FF1961E76F3610063BB1D /* LaunchScreen.storyboard */; };
 		0C7FF1AD1E76F37B0063BB1D /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FF1A21E76F37B0063BB1D /* UIView+Layout.m */; };
-		0C7FF1AE1E76F37B0063BB1D /* BKLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FF1A51E76F37B0063BB1D /* BKLeftMenuViewController.m */; };
+		0C7FF1AE1E76F37B0063BB1D /* BKLeftMenuViewMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FF1A51E76F37B0063BB1D /* BKLeftMenuViewMainController.m */; };
 		0C7FF1AF1E76F37B0063BB1D /* BKLeftMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FF1AA1E76F37B0063BB1D /* BKLeftMenuTableView.m */; };
 		0C7FF1B01E76F37B0063BB1D /* DarkCurtainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FF1AC1E76F37B0063BB1D /* DarkCurtainView.m */; };
 		0C7FF1B31E76F7720063BB1D /* UIView+BackgroundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FF1B21E76F7720063BB1D /* UIView+BackgroundImageView.m */; };
@@ -35,8 +35,8 @@
 		0C7FF1991E76F3610063BB1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C7FF1A11E76F37B0063BB1D /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		0C7FF1A21E76F37B0063BB1D /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
-		0C7FF1A41E76F37B0063BB1D /* BKLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKLeftMenuViewController.h; sourceTree = "<group>"; };
-		0C7FF1A51E76F37B0063BB1D /* BKLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKLeftMenuViewController.m; sourceTree = "<group>"; };
+		0C7FF1A41E76F37B0063BB1D /* BKLeftMenuViewMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKLeftMenuViewMainController.h; sourceTree = "<group>"; };
+		0C7FF1A51E76F37B0063BB1D /* BKLeftMenuViewMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKLeftMenuViewMainController.m; sourceTree = "<group>"; };
 		0C7FF1A71E76F37B0063BB1D /* LeftMenuTableViewCellSelectActionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuTableViewCellSelectActionProtocol.h; sourceTree = "<group>"; };
 		0C7FF1A91E76F37B0063BB1D /* BKLeftMenuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKLeftMenuTableView.h; sourceTree = "<group>"; };
 		0C7FF1AA1E76F37B0063BB1D /* BKLeftMenuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKLeftMenuTableView.m; sourceTree = "<group>"; };
@@ -124,8 +124,8 @@
 		0C7FF1A31E76F37B0063BB1D /* ControllerFiles */ = {
 			isa = PBXGroup;
 			children = (
-				0C7FF1A41E76F37B0063BB1D /* BKLeftMenuViewController.h */,
-				0C7FF1A51E76F37B0063BB1D /* BKLeftMenuViewController.m */,
+				0C7FF1A41E76F37B0063BB1D /* BKLeftMenuViewMainController.h */,
+				0C7FF1A51E76F37B0063BB1D /* BKLeftMenuViewMainController.m */,
 			);
 			path = ControllerFiles;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C7FF18D1E76F3610063BB1D /* ViewController.m in Sources */,
-				0C7FF1AE1E76F37B0063BB1D /* BKLeftMenuViewController.m in Sources */,
+				0C7FF1AE1E76F37B0063BB1D /* BKLeftMenuViewMainController.m in Sources */,
 				0C7FF18A1E76F3610063BB1D /* AppDelegate.m in Sources */,
 				0C7FF1871E76F3610063BB1D /* main.m in Sources */,
 				0C7FF1AD1E76F37B0063BB1D /* UIView+Layout.m in Sources */,

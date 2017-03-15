@@ -5,25 +5,25 @@
 #import "DarkCurtainView.h"
 
 
-@interface BKLeftMenuViewController : UIViewController
+@interface BKLeftMenuViewMainController : UIViewController
 
-//[初始化]左端菜单栏切换页面控制器
-+ (instancetype)leftMenuViewController;
+//[初始化]左端菜单栏切换页面中心控制器
++ (instancetype)leftMenuViewMainController;
 - (instancetype)initWithchildViewControllerArr:(NSArray*)childViewControllerArr;
 
-//[添加自控制器]方法
+//[单一添加子控制器]方法
 - (void)addChildViewControllerToMainViewController:(UIViewController*)childViewController;
 
-//[添加单一左端菜单栏名称]方法
+//[单一添加左端菜单栏Cell文字]方法
 - (void)addleftMenuCellLabelText:(NSString*)celllabelText;
 
-//[添加左端菜单栏名称数组]方法
+//[添加左端菜单栏Cell文字数组]方法
 - (void)loadleftMenuCellLabelTextArray:(NSArray*)cellLabelTextArray;
 
 //设置自控制[切换动画以及切换时间](不建议使用,修改切换属性会影响切换性能)
 - (void)setTransitionType:(UIViewAnimationOptions)transitionType transitionTime:(CGFloat)transitionTime;
 
-//完成左端菜单栏以及子控制器加载[主方法]
+//完成左端菜单栏以及子控制器[最终加载主方法]
 - (void)loadLeftMenuMainFunction;
 
 
@@ -31,3 +31,5 @@
 @property (nonatomic, strong) BKLeftMenuTableView *mainLeftMenuTableView;
 
 @end
+
+

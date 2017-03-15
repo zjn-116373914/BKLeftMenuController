@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "BKLeftMenuViewController.h"
+#import "BKLeftMenuViewMainController.h"
 
 @interface ViewController ()
 
@@ -38,8 +38,8 @@
     [thirdViewCtl.view setBackgroundImageViewFromImage:[UIImage imageNamed:@"Image3_Tassadar"]];
     UINavigationController *thirdViewNVCtl = [[UINavigationController alloc] initWithRootViewController:thirdViewCtl];
     
-    /**框架外核心代码**/
-    BKLeftMenuViewController *mainViewCtl = [[BKLeftMenuViewController leftMenuViewController] initWithchildViewControllerArr:@[firstViewNVCtl,secondViewNVCtl,thirdViewNVCtl]];
+    /**框架外[核心代码]**/
+    BKLeftMenuViewMainController *mainViewCtl = [[BKLeftMenuViewMainController leftMenuViewMainController] initWithchildViewControllerArr:@[firstViewNVCtl,secondViewNVCtl,thirdViewNVCtl]];
     [mainViewCtl loadleftMenuCellLabelTextArray:@[@"第1页",@"第2页",@"第3页"]];
 //    [mainViewCtl setTransitionType:UIViewAnimationOptionTransitionFlipFromLeft transitionTime:0.5];
     [mainViewCtl loadLeftMenuMainFunction];
@@ -48,6 +48,6 @@
     [self presentViewController:mainViewCtl animated:YES completion:nil];
 }
 
-
-
 @end
+
+

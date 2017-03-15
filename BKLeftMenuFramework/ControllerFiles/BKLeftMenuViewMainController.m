@@ -1,4 +1,4 @@
-#import "BKLeftMenuViewController.h"
+#import "BKLeftMenuViewMainController.h"
 
 //宏定义屏幕长宽以及其他参数
 #define ScreenWidth   [UIScreen mainScreen].bounds.size.width
@@ -8,7 +8,7 @@
 #define TabBarItemHeight     49
 
 
-@interface BKLeftMenuViewController ()<LeftMenuTableViewCellSelectActionProtocol>
+@interface BKLeftMenuViewMainController ()<LeftMenuTableViewCellSelectActionProtocol>
 {
     UIViewController *_currentViewController;
     
@@ -28,7 +28,7 @@
 
 @end
 
-@implementation BKLeftMenuViewController
+@implementation BKLeftMenuViewMainController
 #pragma mark - 系统方法
 - (instancetype)init
 {
@@ -52,13 +52,13 @@
 #pragma mark -------------------------------------------------------
 
 #pragma mark - [外部开放]方法
-//[初始化]左端菜单栏切换页面控制器
-+ (instancetype)leftMenuViewController
+//[初始化]左端菜单栏切换页面中心控制器
++ (instancetype)leftMenuViewMainController
 {
     return [[self alloc] init];
 }
 
-//[构造方法]左端菜单栏切换页面控制器
+//[构造方法]左端菜单栏切换页面中心控制器
 - (instancetype)initWithchildViewControllerArr:(NSArray*)childViewControllerArr
 {
     self = [super init];
@@ -75,20 +75,20 @@
 }
 
 
-//[添加自控制器]方法
+//[单一添加子控制器]方法
 - (void)addChildViewControllerToMainViewController:(UIViewController*)childViewController
 {
     [self.childViewControllerMarr addObject:childViewController];
     
 }
 
-//[添加单一左端菜单栏名称]方法
+//[单一添加左端菜单栏Cell文字]方法
 - (void)addleftMenuCellLabelText:(NSString*)celllabelText
 {
     [self.leftMenuCellLabelTextMarr addObject:celllabelText];
 }
 
-//[添加左端菜单栏名称数组]方法
+//[添加左端菜单栏Cell文字数组]方法
 - (void)loadleftMenuCellLabelTextArray:(NSArray*)cellLabelTextArray
 {
     self.leftMenuCellLabelTextMarr = [NSMutableArray arrayWithArray:cellLabelTextArray];
@@ -96,7 +96,7 @@
 
 
 
-//[加载右端菜单栏]方法
+//完成左端菜单栏以及子控制器[最终加载主方法]
 - (void)loadLeftMenuMainFunction
 {
      [self.view addSubview:self.MainView];
@@ -127,7 +127,7 @@
     /**----------------------------------------------------------------**/
 }
 
-//设置自控制[切换动画以及切换时间]
+//设置自控制[切换动画以及切换时间](不建议使用,修改切换属性会影响切换性能)
 - (void)setTransitionType:(UIViewAnimationOptions)transitionType transitionTime:(CGFloat)transitionTime
 {
     _transitionType = transitionType;
