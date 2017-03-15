@@ -1,11 +1,3 @@
-//
-//  UIView+BackgroundImageView.m
-//  BKLeftMenuControllerDemo
-//
-//  Created by 张加宁 on 2017/3/13.
-//  Copyright © 2017年 BlackKnife. All rights reserved.
-//
-
 #import "UIView+BackgroundImageView.h"
 
 //宏定义屏幕长宽以及其他参数
