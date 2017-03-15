@@ -8,7 +8,7 @@
     secondViewCtl.view.backgroundColor = [UIColor blueColor];
     
     /**框架外核心代码**/
-    BKLeftMenuViewController *mainViewCtl = [[BKLeftMenuViewController leftMenuViewController] initWithchildViewControllerArr:@[firstViewCtl, secondViewCtl]];
+    BKLeftMenuViewMainController *mainViewCtl = [[BKLeftMenuViewMainController leftMenuViewMainController] initWithchildViewControllerArr:@[firstViewCtl, secondViewCtl]];
     [mainViewCtl loadleftMenuCellLabelTextArray:@[@"第1页", @"第2页"]];
     [mainViewCtl loadLeftMenuMainFunction];
     /**--------------------------------------**/
