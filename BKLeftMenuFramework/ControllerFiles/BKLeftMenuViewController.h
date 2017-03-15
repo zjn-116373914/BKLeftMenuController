@@ -20,12 +20,14 @@
 //[添加左端菜单栏名称数组]方法
 - (void)loadleftMenuCellLabelTextArray:(NSArray*)cellLabelTextArray;
 
-//[加载右端菜单栏]方法
-- (void)loadLeftMenuMainFunction;
-
 //设置自控制[切换动画以及切换时间](不建议使用,修改切换属性会影响切换性能)
 - (void)setTransitionType:(UIViewAnimationOptions)transitionType transitionTime:(CGFloat)transitionTime;
 
+//完成左端菜单栏以及子控制器加载[主方法]
+- (void)loadLeftMenuMainFunction;
+
+
+//左端菜单栏TableView试图
 @property (nonatomic, strong) BKLeftMenuTableView *mainLeftMenuTableView;
 
 @end
