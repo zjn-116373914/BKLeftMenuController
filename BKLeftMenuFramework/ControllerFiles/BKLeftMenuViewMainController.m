@@ -111,6 +111,9 @@
     /**加载可切换型子控制**/
     for (UIViewController *childViewController in self.childViewControllerMarr)
     {
+        UIBarButtonItem *navigationLeftBtn = [[UIBarButtonItem alloc] initWithTitle:@"菜单" style:UIBarButtonItemStylePlain target:self action:@selector(showLeftMenuTableView)];
+        [childViewController.childViewControllers firstObject].navigationItem.leftBarButtonItem = navigationLeftBtn;
+        
         [self addChildViewController:childViewController];
         [self.MainView addSubview:childViewController.view];
         childViewController.view.hidden = YES;
