@@ -52,10 +52,16 @@
 #pragma mark -------------------------------------------------------
 
 #pragma mark - [外部开放]方法
-//[初始化]左端菜单栏切换页面中心控制器
-+ (instancetype)leftMenuViewMainController
+//[单例初始化]左端菜单栏切换页面中心控制器
++ (BKLeftMenuViewMainController*)leftMenuViewMainController
 {
-    return [[self alloc] init];
+    static BKLeftMenuViewMainController *singleton = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^
+                  {
+                      singleton = [[BKLeftMenuViewMainController alloc] init];
+                  });
+    return singleton;
 }
 
 //[构造方法]左端菜单栏切换页面中心控制器
@@ -99,7 +105,8 @@
 //完成左端菜单栏以及子控制器[最终加载主方法]
 - (void)loadLeftMenuMainFunction
 {
-     [self.view addSubview:self.MainView];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.MainView];
     
     /**加载可切换型子控制**/
     for (UIViewController *childViewController in self.childViewControllerMarr)
@@ -121,7 +128,7 @@
     /**----------------------------------------------------------------**/
     
     /**左边缘手势**/
-    UIScreenEdgePanGestureRecognizer *screenEdgeFromLeft = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(screenEdgeFromLeftAction)];
+    UIScreenEdgePanGestureRecognizer *screenEdgeFromLeft = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(showLeftMenuTableView)];
     screenEdgeFromLeft.edges = UIRectEdgeLeft;
     [self.view addGestureRecognizer:screenEdgeFromLeft];
     /**----------------------------------------------------------------**/
@@ -137,23 +144,10 @@
 #pragma mark -------------------------------------------------------
 
 
-#pragma mark - 按钮点击事件
-//导航栏[菜单]点击事件
-- (void)letfNavigationBtnAction
-{
-    [UIView animateWithDuration:0.5 animations:^
-     {
-         [self.mainLeftMenuTableView setFrame:CGRectMake(0, self.mainLeftMenuTableView.y, self.mainLeftMenuTableView.width, self.mainLeftMenuTableView.height)];
-     }];
-}
 
-#pragma mark -------------------------------------------------------
-
-
-
-#pragma mark - 手势监控事件
-//[主视图左边缘手势]监控事件-左端菜单栏试图[出现]
-- (void)screenEdgeFromLeftAction
+#pragma mark - 左端菜单栏[显示]与[隐藏]方法
+//左端菜单栏[显示]方法
+- (void)showLeftMenuTableView
 {
     [UIView animateWithDuration:0.5 animations:^
      {
@@ -164,8 +158,8 @@
 }
 
 
-//[点击黑幕空白处]监控事件-左端菜单栏试图[消失]
-- (void)TapGesture
+//左端菜单栏[隐藏]方法
+- (void)dismissLeftMenuTableView
 {
     [UIView animateWithDuration:0.5 animations:^
      {
@@ -174,27 +168,15 @@
     
     [self.darkCurtainView setFrame:CGRectMake(-self.darkCurtainView.width, 0, self.darkCurtainView.width, self.darkCurtainView.height)];
 }
-
-//[左滑手势]监控事件-左端菜单栏试图[消失]
-- (void)swipeToRightAction
-{
-    [UIView animateWithDuration:0.5 animations:^
-     {
-         [self.mainLeftMenuTableView setFrame:CGRectMake(-self.mainLeftMenuTableView.width, self.mainLeftMenuTableView.y, self.mainLeftMenuTableView.width, self.mainLeftMenuTableView.height)];
-     }];
-    
-    [self.darkCurtainView setFrame:CGRectMake(-self.darkCurtainView.width, 0, self.darkCurtainView.width, self.darkCurtainView.height)];
-}
-
 #pragma mark -------------------------------------------------------
 
 
 
-#pragma mark - LeftMenuTableViewCellSelectActionProtocol
+#pragma mark - LeftMenuTableViewCellSelectActionProtocol-左端隐藏菜单栏[Cell点击事件]协议方法
 //左端隐藏菜单栏Cell点击的协议方法
 - (void)LeftMenuTableViewCellSelectActionWithIndexRow:(NSInteger)indexRow
 {
-    [self swipeToRightAction];
+    [self dismissLeftMenuTableView];
     
     UIViewController *oldViewCtl = _currentViewController;
     UIViewController *selectViewController = self.childViewControllerMarr[indexRow];
@@ -221,7 +203,7 @@
 #pragma mark -------------------------------------------------------
 
 
-#pragma mark - GettingAndSetting - 全部变量加载前处理
+#pragma mark - GettingAndSetting - 全局试图变量加载前预处理
 //左端隐藏菜单栏TableView
 -(BKLeftMenuTableView *)mainLeftMenuTableView
 {
@@ -234,7 +216,7 @@
         _mainLeftMenuTableView.y = HeadHeight;
         
         
-        UISwipeGestureRecognizer *swipeToLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToRightAction)];
+        UISwipeGestureRecognizer *swipeToLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismissLeftMenuTableView)];
         swipeToLeft.direction = UISwipeGestureRecognizerDirectionLeft;
         [_mainLeftMenuTableView addGestureRecognizer:swipeToLeft];
         
@@ -244,18 +226,20 @@
     return _mainLeftMenuTableView;
 }
 
-//加载跳转控制器的试图UIView
+//子控制器载体试图UIView
 -(UIView *)MainView
 {
     if(!_MainView)
     {
         _MainView = [[UIView alloc] init];
         _MainView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+        _MainView.backgroundColor = [UIColor whiteColor];
     }
     
     return _MainView;
 }
 
+//黑幕变暗特性UIView
 -(DarkCurtainView *)darkCurtainView
 {
     if(!_darkCurtainView)
@@ -266,7 +250,7 @@
         _darkCurtainView.x = -_darkCurtainView.width;
         _darkCurtainView.y = 0;
         
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(TapGesture)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissLeftMenuTableView)];
         [_darkCurtainView addGestureRecognizer:tap];
     }
     
