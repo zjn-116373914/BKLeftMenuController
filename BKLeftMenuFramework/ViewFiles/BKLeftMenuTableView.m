@@ -1,6 +1,6 @@
 #import "BKLeftMenuTableView.h"
 
-//宏定义屏幕长宽以及其他参数
+/**宏定义屏幕长宽以及其他参数**/
 #define ScreenWidth   [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight  [UIScreen mainScreen].bounds.size.height
 #define HeadHeight    20

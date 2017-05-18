@@ -38,14 +38,13 @@
     [thirdViewCtl.view setBackgroundImageViewFromImage:[UIImage imageNamed:@"Image3_Tassadar"]];
     UINavigationController *thirdViewNVCtl = [[UINavigationController alloc] initWithRootViewController:thirdViewCtl];
     
-    /**框架外[核心代码]**/
+    //框架外[核心代码]
     BKLeftMenuViewMainController *mainViewCtl = [[BKLeftMenuViewMainController leftMenuViewMainController] initWithchildViewControllerArr:@[firstViewNVCtl,secondViewNVCtl,thirdViewNVCtl]];
     [mainViewCtl loadleftMenuCellLabelTextArray:@[@"第1页",@"第2页",@"第3页"]];
+    //    [mainViewCtl setTransitionType:UIViewAnimationOptionTransitionFlipFromLeft transitionTime:0.5];
     [mainViewCtl loadLeftMenuMainFunction];
-    /**--------------------------------------**/
+   //----------------------------------------------------------------
     
-    
-//    [mainViewCtl setTransitionType:UIViewAnimationOptionTransitionFlipFromLeft transitionTime:0.5];
     [self presentViewController:mainViewCtl animated:YES completion:nil];
     
 }
